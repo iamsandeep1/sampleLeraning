@@ -1,0 +1,26 @@
+
+Recived Ip from json file: ['192.0.2.146', '192.0.2', '10.1.1.1']
+Validating IP 192.0.2.146
+This is Reserved IP
+ip is valid, proceeding for the ping
+
+Pinging 192.0.2.146 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.0.2.146:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+Validating IP 192.0.2
+ip is not valid
+
+Validating IP 10.1.1.1
+This is Reserved IP
+ip is valid, proceeding for the ping
+
+Pinging 10.1.1.1 with 32 bytes of data:
+Reply from 10.1.1.1: bytes=32 time=335ms TTL=57
+
+Ping statistics for 10.1.1.1:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 335ms, Maximum = 335ms, Average = 335ms
