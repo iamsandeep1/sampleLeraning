@@ -8,25 +8,21 @@ class Validate:
         pass
     
     def validate_ip(self,jsonFile):
-        #self.ip_addr = ip_addr
-		with open(jsonFile) as f:
-		    data = json.load(f)
-		
-		print("data")
-        
-        print("Recived Ip from json file:",ip_addr[0])
-        regex = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
-        
-        for i in range(len(ip_addr[0])):
-            print("Validating IP",ip_addr[0][i])
+        self.jsonFile = jsonFile
+        with open(jsonFile) as file:
+            data = json.load(file)
             
+        for ip_addr in data['ipaddr']:
+            print("Recived Ip from json file:",ip_addr)
+            regex = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+            print("Validating IP",ip_addr)
             try:
-                if(re.search(regex,ip_addr[0][i])):
-                    if (re.search(r"10|172|192",ip_addr[0][i].split('.')[0])):
+                if(re.search(regex,ip_addr)):
+                    if (re.search(r"10|172|192",ip_addr.split('.')[0])):
                         print("This is Reserved IP")
                             
                     print("ip is valid, proceeding for the ping")
-                    os.system("ping -n 1 "+ip_addr[0][i])
+                    os.system("ping -n 1 "+ip_addr)
                 else:
                     raise Exception()
             except:
