@@ -2,16 +2,17 @@ import json
 import re
 import os
 
-myfile = open('data.json','r+')
-data = json.loads(myfile.read())
-
 class Validate:
      
     def __init__(self):
         pass
-        
-    def validate_ip(self,*ip_addr):
-        self.ip_addr = ip_addr
+    
+    def validate_ip(self,jsonFile):
+        #self.ip_addr = ip_addr
+		with open(jsonFile) as f:
+		    data = json.load(f)
+		
+		print("data")
         
         print("Recived Ip from json file:",ip_addr[0])
         regex = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
@@ -33,4 +34,4 @@ class Validate:
             print(end="\n")
     
 ipObj=Validate()
-ipObj.validate_ip(data['ipaddr'])
+ipObj.validate_ip('data.json')
